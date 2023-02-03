@@ -1,0 +1,62 @@
+.container {
+  background-color: rgb(218, 226, 238);
+  padding: 20px;
+  margin: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-family: "Roboto", sans-serif;
+  border-radius: 30px;
+  max-width: 900px;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+h2 {
+  font-size: 50px;
+  padding-bottom: 15px;
+  font-weight: 900;
+}
+h3,
+h4 {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 60px;
+  padding-bottom: 15px;
+  font-weight: 900;
+}
+
+p {
+  color: rgb(105, 104, 104);
+  font-size: 15px;
+  font-family: monospace;
+  line-height: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.form,
+.days,
+.main {
+  padding: 20px;
+}
+
+.iconmain {
+  font-size: 150px;
+  text-align: center;
+  margin-top: 70px;
+}
+.bottomicon {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
