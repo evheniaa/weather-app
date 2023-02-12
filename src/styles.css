@@ -63,3 +63,7 @@ a {
 .description {
   text-transform: capitalize;
 }
+.active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
