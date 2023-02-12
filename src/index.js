@@ -19,36 +19,45 @@ function currentDate(date) {
 let date = document.querySelector("#date");
 date.innerHTML = currentDate();
 
-function showLocation(event) {
-  event.preventDefault();
-  let cityElement = document.querySelector("#city");
-  let cityInput = document.querySelector("#cityInput");
-  cityElement.innerHTML = cityInput.value;
-}
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", showLocation);
-
 function showWeather(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let displaytemp = document.querySelector("#temper");
-  displaytemp.innerHTML = `${temperature}`;
-  let wind = document.querySelector("#wind");
-  wind.innerHTML = response.data.wind.speed;
-  let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = response.data.main.humidity;
-  let condition = document.querySelector("#condition");
-  condition.innerHTML = response.data.weather[0].main;
-  let changeCity = document.querySelector("#city");
-  changeCity.innerHTML = response.data.name;
+  let temperatureElement = document.querySelector("#temper");
+  let cityElement = document.querySelector("#city");
+  let descriptionElement = document.querySelector("#condition");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+
+  let iconElement = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-function searchCity(event) {
-  event.preventDefault();
+function search(city) {
   let apiKey = "b5cba407c6dd9e5ec031b787447ac932";
-  let city = document.querySelector("#cityInput").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
+
+search("Kyiv");
+function showLocation(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#cityInput");
+  search(cityInputElement.value);
+}
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", showLocation);
 
 function currentPosition(position) {
   let apiKey = "b5cba407c6dd9e5ec031b787447ac932";
@@ -63,9 +72,5 @@ function currPosition(event) {
   navigator.geolocation.getCurrentPosition(currentPosition);
 }
 
-searchForm.addEventListener("submit", searchCity);
-
 let currentLocationButton = document.querySelector("#button-current");
 currentLocationButton.addEventListener("click", currPosition);
-
-//https://codesandbox.io/s/billowing-river-g4zg15?file=/index.html

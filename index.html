@@ -59,26 +59,32 @@
           <div class="col">
             <div class="row">
               <div class="col colicon">
-                <p class="iconmain">☁️</p>
+                <img src="" alt="clear" id="icon" class="float-left" />
               </div>
               <div class="col">
-                <h2><span id="temper">12</span>°C</h2>
+                <h2>
+                  <span id="temper"></span>
+                  <span class="units"
+                    ><a href="#" id="celsius-link" class="active">°C</a> |
+                    <a href="#" id="fahrenheit-link">°F</a></span
+                  >
+                </h2>
 
                 <ul>
                   <li>
-                    <p>Humidity: <span id="humidity">50</span>%</p>
+                    <p>Humidity: <span id="humidity"></span>%</p>
                   </li>
                   <li>
-                    <p>Wind: <span id="wind">20</span> km/h</p>
+                    <p>Wind: <span id="wind"></span> km/h</p>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="col">
-            <h1 class="cityname" id="city">Kyiv</h1>
+            <h1 class="cityname" id="city"></h1>
             <p id="date">Sunday 15:00</p>
-            <p><span id="condition">Cloudy</span></p>
+            <p><span class="description" id="condition"></span></p>
           </div>
         </div>
       </section>
