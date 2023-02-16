@@ -15,7 +15,7 @@ ul {
 }
 
 h2 {
-  font-size: 45px;
+  font-size: 60px;
   padding-bottom: 15px;
   font-weight: 900;
 }
@@ -47,6 +47,10 @@ a {
 .days,
 .main {
   padding: 20px;
+}
+
+.maintext {
+  text-align: center;
 }
 
 .days {
